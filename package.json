@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "superset-plugin-chart-liquid": "file:superset-frontend/packages/generator-superset/superset-plugin-chart-liquid"
+  }
+}
