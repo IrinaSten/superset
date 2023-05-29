@@ -102,6 +102,18 @@ EXPOSE ${SUPERSET_PORT}
 CMD ["/usr/bin/run-server.sh"]
 
 ######################################################################
+# Plugin...
+######################################################################
+WORKDIR /app/superset-frontend/packages/generator-superset/superset-plugin-chart-liquid
+
+RUN npm ci
+
+RUN npm run build
+
+WORKDIR /app/superset-frontend
+
+RUN npm i -S ./packages/generator-superset/superset-plugin-chart-liquid --force
+######################################################################
 # Dev image...
 ######################################################################
 FROM lean AS dev
